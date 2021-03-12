@@ -134,9 +134,7 @@ func sampleExisting(redis_db redis.Client, ctx context.Context) []ShortUrl {
 					r = append(r, su)
 				}
 			}
-			log.Println("Processed key", v, "err?", err)
 		}
-
 	}
 	return r
 }
