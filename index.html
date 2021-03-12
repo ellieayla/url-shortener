@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>
+            URL Shortener
+        </title>
+    </head>
+    <body>
+        <h1>Shorten a url</h1>
+        <p>Stores into redis.</p>
+        <form action="/_create" method="GET">
+            <input name="target" value="https://example.com/">
+            <button type="submit">Shorten</button>
+        </form>
+        <hr>
+        <h2>
+            Stats urls
+        </h2>
+        <p>Keyspace: {{ .KeyspaceInfo }}</p>
+        <ul>
+            {{ range $u := .KnownSlugs }}
+            <li>
+                <a href="/{{ $u.Slug }}?details">{{ $u.Slug }}</a>
+                    <small>{{ $u.Ttl }} clicks={{ $u.Clicks}} target={{ $u.Target}}</small>
+            </li>
+            {{ end }}
+        </ul>
+    </body>
+</html>

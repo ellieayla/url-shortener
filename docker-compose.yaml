@@ -1,0 +1,19 @@
+version: '3.4'
+services:
+  shortener:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: "tignis.azurecr.io/tignis/platform/annotations:${TAG:-latest}"
+    ports:
+      - "8000:8000"
+    environment:
+      LOG_LEVEL: INFO
+    depends_on:
+      - redis
+
+  redis:
+    image: "redis:6.2.1-buster"
+    restart: "unless-stopped"
+    ports:
+      - "6379:6379"

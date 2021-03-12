@@ -1,0 +1,14 @@
+<html>
+    <head>
+        <title>
+            URL Shortener
+        </title>
+    </head>
+    <body>
+        <p><a href="/">&lt;- home</a></p>
+        <h1>Details: <a href="/{{ .Slug }}">{{ .Slug }}</a></h1>
+        <p>target: {{ .Target }}</p>
+        <p>clicks: {{ .Clicks }}</p>
+        <p>ttl: {{ .Ttl }}</p>
+    </body>
+</html>
