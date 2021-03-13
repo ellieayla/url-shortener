@@ -4,7 +4,6 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: "tignis.azurecr.io/tignis/platform/annotations:${TAG:-latest}"
     ports:
       - "8000:8000"
     environment:
